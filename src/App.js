@@ -70,10 +70,10 @@ class App extends Component {
                 this.state.addingRecipe ?
                   <li>
                     <form>
-                      <input role="textbox" type="text" name="recipe-name" onChange={this.handleChange}></input>
-                      <input role="textbox" type="text" name="recipe-instructions" onChange={this.handleChange}></input>
-                      <button onClick={this.handleAddNewRecipe}>Add</button>
+                      <input type="text" name="recipe-name" label="recipe-name" onChange={this.handleChange}></input>
+                      <input type="text" name="recipe-instructions" label="recipe-name" onChange={this.handleChange}></input>
                     </form>
+                    <button onClick={this.handleAddNewRecipe}>Add</button>
                   </li>
                 : null
               }
