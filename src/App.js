@@ -52,37 +52,38 @@ class App extends Component {
         {/* ^ Do not remove this element ^ */}
         <div>
           <h1>My Recipes</h1>
+          {
+            /* TODO: Should be its own component, "Recipe list" */
+            this.recipes.length || this.state.addingRecipe ?
+            <div>
+              <ul>
+              {
+                /* Acutal ul list of recipes */
+                this.recipes.map(data => (
+                  <li>
+                    <p>{data.name}</p>
+                    <p>{data.instructions}</p>
+                  </li>
+                ))
+              }
+              {
+                this.state.addingRecipe ?
+                  <li>
+                    <form>
+                      <input type="text" name="recipe-name" onChange={this.handleChange}></input>
+                      <input type="text" name="recipe-instructions" onChange={this.handleChange}></input>
+                      <button onClick={this.handleAddNewRecipe}>Add</button>
+                    </form>
+                  </li>
+                : null
+              }
+              </ul>
+            </div>
+            :
+            <p>There are no recipes to list</p>
+          }
           {this.state.addingRecipe ? null : <button onClick={this.handleNewRecipeForm}>Add Recipe</button>}
         </div>
-        {
-          /* TODO: Should be its own component, "Recipe list" */
-          this.recipes.length || this.state.addingRecipe ?
-          <div>
-            <h2>My Recipes</h2>
-            <ul>
-            {
-              /* Acutal ul list of recipes */
-              this.recipes.map(data => (
-                <li>
-                  <p>{data.name}</p>
-                  <p>{data.instructions}</p>
-                </li>
-              ))
-            }
-            {
-              this.state.addingRecipe ?
-                <li>
-                  <input type="text" name="recipe-name" onChange={this.handleChange}></input>
-                  <input type="text" name="recipe-instructions" onChange={this.handleChange}></input>
-                  <button onClick={this.handleAddNewRecipe}>Add</button>
-                </li>
-              : null
-            }
-            </ul>
-          </div>
-          :
-          <h2>There are no recipes to list</h2>
-        }
       </div>
     );
   }
