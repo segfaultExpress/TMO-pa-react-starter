@@ -9,7 +9,7 @@ class App extends Component {
     this.recipes = [];
 
     this.state = {
-      bufferButton: true,
+      bufferButton: false,
       addingRecipe: false
     }
 
