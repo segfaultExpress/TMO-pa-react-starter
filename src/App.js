@@ -82,8 +82,7 @@ class App extends Component {
                 /* Acutal ul list of recipes */
                 this.recipes.map(data => (
                   <li>
-                    <p>{data.name}</p>
-                    <p>{data.instructions}</p>
+                    {data.name}
                   </li>
                 ))
               }
